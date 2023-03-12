@@ -1,5 +1,6 @@
 ﻿#include "NatPunchthroughClient.h"
 #include "stdafx.h"
+#include "NATServer.h"
 #include "RakPeerInterface.h"
 #include "NatPunchthroughServer.h"
 #include "UDPProxyCoordinator.h"
@@ -7,7 +8,14 @@
 
 using namespace RakNet;
 
-NATServer::NATServer(RakNet::RakPeerInterface* rakPeer) : rakPeer(rakPeer), nat(new NatPunchthroughServer()), udpCoordinator(new UDPProxyCoordinator()), udpServer(new UDPProxyServer) {}
+class ExNatPunchthroughServer : public NatPunchthroughServer {
+public:
+	[[nodiscard]] unsigned int GetConnectedUserCount() const {
+		return this->users.Size();
+	}
+};
+
+NATServer::NATServer(RakNet::RakPeerInterface* rakPeer) : rakPeer(rakPeer), nat(new ExNatPunchthroughServer()), udpCoordinator(new UDPProxyCoordinator()), udpServer(new UDPProxyServer) {}
 
 NATServer::~NATServer() {
 	if(rakPeer->IsActive()) {
@@ -39,4 +47,8 @@ void NATServer::StartServer() {
 
 	rakPeerUDP->AttachPlugin(udpServer);
 	udpServer->LoginToCoordinator(COORDINATOR_PASSWORD, rakPeerUDP->GetInternalID(UNASSIGNED_SYSTEM_ADDRESS));
+}
+
+unsigned int NATServer::GetConnectedUser() const {
+	return this->nat->GetConnectedUserCount();
 }

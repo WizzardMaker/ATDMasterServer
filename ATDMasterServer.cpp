@@ -1,10 +1,11 @@
-// ATDMasterServer.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
 
-#include <memory>
+#include <thread>
 
 #include "RakPeerInterface.h"
 #include "stdafx.h"
+#include "NATServer.h"
+#include "ServerBrowser.h"
+#include "WebView.h"
 
 using namespace RakNet;
 using namespace std;
@@ -19,8 +20,9 @@ int main()
 
 	RakPeerInterface* rakPeer = RakPeerInterface::GetInstance();
 
-    const unique_ptr<NATServer> nat = make_unique<NATServer>(rakPeer);
-	const unique_ptr <ServerBrowser> browser = make_unique<ServerBrowser>(rakPeer);
+    const shared_ptr<NATServer> nat = make_shared<NATServer>(rakPeer);
+	const shared_ptr<ServerBrowser> browser = make_shared<ServerBrowser>(rakPeer);
+	const shared_ptr<WebView> view = make_shared<WebView>(browser, nat);
 
 	SocketDescriptor sd(SocketDescriptor(SERVER_BROWSER_PORT, nullptr));
 	StartupResult hres = rakPeer->Startup(8096, &sd, 1);
@@ -32,6 +34,10 @@ int main()
 
 	nat->StartServer();
 	browser->StartServer();
+	view->StartServer();
+
+
+	std::thread pollingThread([&] {while (true) view->ProcessMessage(); });
 
 	while(true) {
 		browser->ProcessMessages();

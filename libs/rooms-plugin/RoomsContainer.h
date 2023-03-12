@@ -19,6 +19,8 @@
 #include "IntervalTimer.h"
 #include "RoomTypes.h"
 
+class ServerBrowser;
+
 namespace RakNet
 {
 class ProfanityFilter;
@@ -461,6 +463,7 @@ protected:
 class PerGameRoomsContainer
 {
 public:
+	friend class ::ServerBrowser;
 	PerGameRoomsContainer();
 	~PerGameRoomsContainer();
 

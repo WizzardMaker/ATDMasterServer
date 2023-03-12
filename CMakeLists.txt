@@ -120,14 +120,15 @@ set(PROJECT_NAME ATDMasterServer)
 ################################################################################
 # Source groups
 ################################################################################
-set(Headerdateien
+set(Include
     "defines.h"
     "NATServer.h"
     "ServerBrowser.h"
     "ServerBrowserMessageTypes.h"
+    "WebView.h"
     "stdafx.h"
 )
-source_group("Headerdateien" FILES ${Headerdateien})
+source_group("Include" FILES ${Include})
 
 set(Lib__raknet
     "libs/raknet/_FindFirst.cpp"
@@ -414,18 +415,25 @@ set(Lib__rooms
 )
 source_group("Lib\\rooms" FILES ${Lib__rooms})
 
-set(Quelldateien
+set(Lib__mongoose
+    "libs/mongoose/mongoose.cpp"
+    "libs/mongoose/mongoose.h"
+)
+source_group("Lib\\mongoose" FILES ${Lib__mongoose})
+
+set(Source
     "ATDMasterServer.cpp"
     "NATServer.cpp"
     "ServerBrowser.cpp"
+    "WebView.cpp"
 )
-source_group("Quelldateien" FILES ${Quelldateien})
+source_group("Source" FILES ${Source})
 
 set(ALL_FILES
-    ${Headerdateien}
+    ${Include}
     ${Lib__raknet}
     ${Lib__rooms}
-    ${Quelldateien}
+    ${Source}
 )
 
 ################################################################################

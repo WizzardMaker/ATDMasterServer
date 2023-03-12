@@ -226,6 +226,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ATDMasterServer.cpp" />
+    <ClCompile Include="libs\mongoose\mongoose.c" />
     <ClCompile Include="libs\raknet\Base64Encoder.cpp" />
     <ClCompile Include="libs\raknet\BitStream.cpp" />
     <ClCompile Include="libs\raknet\CCRakNetSlidingWindow.cpp" />
@@ -344,9 +345,11 @@
     <ClCompile Include="libs\rooms-plugin\RoomTypes.cpp" />
     <ClCompile Include="NATServer.cpp" />
     <ClCompile Include="ServerBrowser.cpp" />
+    <ClCompile Include="WebView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h" />
+    <ClInclude Include="libs\mongoose\mongoose.h" />
     <ClInclude Include="libs\raknet\AutopatcherPatchContext.h" />
     <ClInclude Include="libs\raknet\AutopatcherRepositoryInterface.h" />
     <ClInclude Include="libs\raknet\Base64Encoder.h" />
@@ -511,6 +514,7 @@
     <ClInclude Include="ServerBrowser.h" />
     <ClInclude Include="ServerBrowserMessageTypes.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="WebView.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="libs\raknet\CMakeLists.txt" />

@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Quelldateien">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Headerdateien">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Ressourcendateien">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Lib">
       <UniqueIdentifier>{fd8eea74-b7b1-44db-addb-04aaecf96167}</UniqueIdentifier>
     </Filter>
@@ -22,13 +10,28 @@
     <Filter Include="Lib\rooms">
       <UniqueIdentifier>{2317eff2-2767-437d-9963-34de2c23bf46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lib\mongoose">
+      <UniqueIdentifier>{4719a77d-041c-4426-8811-195e7b661442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ATDMasterServer.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="NATServer.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="libs\raknet\_FindFirst.cpp">
       <Filter>Lib\raknet</Filter>
@@ -361,7 +364,7 @@
       <Filter>Lib\raknet</Filter>
     </ClCompile>
     <ClCompile Include="ServerBrowser.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="libs\rooms-plugin\RoomsErrorCodes.cpp">
       <Filter>Lib\rooms</Filter>
@@ -381,13 +384,19 @@
     <ClCompile Include="libs\rooms-plugin\RoomsContainer.cpp">
       <Filter>Lib\rooms</Filter>
     </ClCompile>
+    <ClCompile Include="WebView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\mongoose\mongoose.c">
+      <Filter>Lib\mongoose</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NATServer.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="libs\raknet\_FindFirst.h">
       <Filter>Lib\raknet</Filter>
@@ -852,10 +861,10 @@
       <Filter>Lib\raknet</Filter>
     </ClInclude>
     <ClInclude Include="ServerBrowser.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="defines.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="libs\rooms-plugin\RoomsErrorCodes.h">
       <Filter>Lib\rooms</Filter>
@@ -876,7 +885,13 @@
       <Filter>Lib\rooms</Filter>
     </ClInclude>
     <ClInclude Include="ServerBrowserMessageTypes.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="WebView.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\mongoose\mongoose.h">
+      <Filter>Lib\mongoose</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
