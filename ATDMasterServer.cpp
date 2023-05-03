@@ -36,8 +36,15 @@ int main()
 	browser->StartServer();
 	view->StartServer();
 
+	printf("ATD master server started!\n");
 
-	std::thread pollingThread([&] {while (true) view->ProcessMessage(); });
+	std::thread pollingThread([&] {
+		while(true) {
+			view->ProcessMessage();
+			nat->ProcessMessages();
+		}
+	});
+	
 
 	while(true) {
 		browser->ProcessMessages();

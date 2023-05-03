@@ -21,10 +21,13 @@ private:
 
     RakNet::UDPProxyServer *udpServer = nullptr;
     RakNet::RakPeerInterface* rakPeerUDP = nullptr;
+
+    bool hasUDPLoggedIn = false;
 public:
     NATServer(RakNet::RakPeerInterface* rakPeer);
     ~NATServer();
     void StartServer();
     
     [[nodiscard]] unsigned int GetConnectedUser() const;
+    void                       ProcessMessages();
 };
